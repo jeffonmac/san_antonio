@@ -1,4 +1,4 @@
-# -*- coding: latin-1 -*-
+# coding: utf-8
 import random
 
 quotes = ["Ecoutez-moi, Monsieur Shakespeare, nous avons beau être ou ne pas être, nous sommes !",
