@@ -1,36 +1,29 @@
-# -*- coding: utf-8 -*-
+# -*- coding: latin-1 -*-
+import random
 
-quotes = [
-    "Ecoutez-moi, Monsieur Shakespeare, nous avons beau être ou ne pas être, nous sommes !", 
-    "On doit pouvoir choisir entre s'écouter parler et se faire entendre."
-]
+quotes = ["Ecoutez-moi, Monsieur Shakespeare, nous avons beau être ou ne pas être, nous sommes !",
+          "On doit pouvoir choisir entre s'écouter parler et se faire entendre."]
 
-characters = [
-    "alvin et les Chipmunks", 
-    "Babar", 
-    "betty boop", 
-    "calimero", 
-    "casper", 
-    "le chat potté", 
-    "Kirikou"
-]
+characters = ["alvin et les Chipmunks", "Babar", "betty boop", "calimero", "casper", "le chat potté", "Kirikou"]
 
-user_answer = input('Tapez entrée pour découvrir une autre citation ou B pour quitter le programme.')
+# get a quote from a list fonction
+def get_random_item(object_list):
+    rand_numb = random.randint(0, len(object_list) - 1)
+    item = object_list[rand_numb]  # get a quote from a list
+    return item  
 
-def show_random_quote(my_list):
-  	# get a random number
-    item = my_list[0] # get a quote from a list
-    print(item) # show the quote in the interpreter
-    return "program is over" # return value
+# capitalize fonction
+def capitaliz(word):
+    return word.capitalize()
 
+# Format a sentence fonction
+def message(character, quote):
+    return "{} a dit : {}".format(capitaliz(character), capitaliz(quote))
 
-if user_answer == "B":
-	pass
-elif user_answer == "C":
-	print("C pas la bonne réponse ! Et G pas d’humour, je C...")
-else:
-# - show another quote
-	pass
+# The sentence at the launch of the program
+user_answer = input("Tapez entrée pour connaître une autre citation ou B pour quitter le programme.")
 
-
-print(show_random_quote(quotes))
+# Loop to generate sentences
+while user_answer != "B":
+    print(message(get_random_item(characters), get_random_item(quotes)))
+    user_answer = input("Tapez entrée pour connaître une autre citation ou B pour quitter le programme.")
